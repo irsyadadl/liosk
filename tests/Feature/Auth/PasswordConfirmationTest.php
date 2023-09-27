@@ -11,7 +11,7 @@ test('confirm password screen can be rendered', function () {
     $response = $this->actingAs($user)->get('/confirm-password');
 
     $response
-        ->assertSeeVolt('pages.auth.confirm-password')
+        ->assertSeeVolt('auth.confirm-password')
         ->assertStatus(200);
 });
 
@@ -20,7 +20,7 @@ test('password can be confirmed', function () {
 
     $this->actingAs($user);
 
-    $component = Volt::test('pages.auth.confirm-password')
+    $component = Volt::test('auth.confirm-password')
         ->set('password', 'password');
 
     $component->call('confirmPassword');
@@ -35,7 +35,7 @@ test('password is not confirmed with invalid password', function () {
 
     $this->actingAs($user);
 
-    $component = Volt::test('pages.auth.confirm-password')
+    $component = Volt::test('auth.confirm-password')
         ->set('password', 'wrong-password');
 
     $component->call('confirmPassword');

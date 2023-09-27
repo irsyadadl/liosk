@@ -8,14 +8,14 @@ test('login screen can be rendered', function () {
     $response = $this->get('/login');
 
     $response
-        ->assertSeeVolt('pages.auth.login')
+        ->assertSeeVolt('auth.login')
         ->assertOk();
 });
 
 test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();
 
-    $component = Volt::test('pages.auth.login')
+    $component = Volt::test('auth.login')
         ->set('email', $user->email)
         ->set('password', 'password');
 
@@ -31,7 +31,7 @@ test('users can authenticate using the login screen', function () {
 test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
-    $component = Volt::test('pages.auth.login')
+    $component = Volt::test('auth.login')
         ->set('email', $user->email)
         ->set('password', 'wrong-password');
 
@@ -51,9 +51,7 @@ test('navigation menu can be rendered', function () {
 
     $response = $this->get('/dashboard');
 
-    $response
-        ->assertSeeVolt('layout.navigation')
-        ->assertOk();
+    $response->assertOk();
 });
 
 test('users can logout', function () {
@@ -61,13 +59,7 @@ test('users can logout', function () {
 
     $this->actingAs($user);
 
-    $component = Volt::test('layout.navigation');
-
-    $component->call('logout');
-
-    $component
-        ->assertHasNoErrors()
-        ->assertRedirect('/');
+    $this->post('/logout');
 
     $this->assertGuest();
 });

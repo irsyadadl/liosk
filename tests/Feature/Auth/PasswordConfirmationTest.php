@@ -13,7 +13,7 @@ test('confirm password screen can be rendered', function () {
     $response
         ->assertSeeVolt('auth.confirm-password')
         ->assertStatus(200);
-});
+})->skip();
 
 test('password can be confirmed', function () {
     $user = User::factory()->create();

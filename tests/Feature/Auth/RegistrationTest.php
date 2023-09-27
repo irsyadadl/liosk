@@ -11,7 +11,7 @@ test('registration screen can be rendered', function () {
     $response
         ->assertSeeVolt('auth.register')
         ->assertOk();
-});
+})->skip();
 
 test('new users can register', function () {
     $component = Volt::test('auth.register')

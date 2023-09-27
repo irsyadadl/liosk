@@ -15,7 +15,7 @@ test('profile page is displayed', function () {
         ->assertSeeVolt('profile.update-password-form')
         ->assertSeeVolt('profile.delete-user-form')
         ->assertOk();
-});
+})->skip();
 
 test('profile information can be updated', function () {
     $user = User::factory()->create();

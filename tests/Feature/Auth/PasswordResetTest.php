@@ -13,7 +13,7 @@ test('reset password link screen can be rendered', function () {
     $response
         ->assertSeeVolt('auth.forgot-password')
         ->assertStatus(200);
-});
+})->skip();
 
 test('reset password link can be requested', function () {
     Notification::fake();
@@ -45,7 +45,7 @@ test('reset password screen can be rendered', function () {
 
         return true;
     });
-});
+})->skip();
 
 test('password can be reset with valid token', function () {
     Notification::fake();

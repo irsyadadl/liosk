@@ -71,7 +71,7 @@ new class extends Component
 
     <x-slot name="content">
 
-    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
+    <form wire:submit="updateProfileInformation" class="space-y-6">
         <div>
             <x-label for="name" :value="__('Name')" />
             <x-input wire:model="name" id="name" name="name" type="text" class="mt-1" required autofocus autocomplete="name" />

@@ -46,7 +46,7 @@ new class extends Component
     </x-slot>
 
     <x-slot name="content">
-        <form wire:submit="updatePassword" class="mt-6 space-y-6">
+        <form wire:submit="updatePassword" class="space-y-6">
             <div>
                 <x-label for="current_password" :value="__('Current Password')" />
                 <x-input wire:model="current_password" id="current_password" name="current_password" type="password" class="mt-1" autocomplete="current-password" />

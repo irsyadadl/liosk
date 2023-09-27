@@ -8,15 +8,10 @@
             <x-slot name="trigger">
                 @auth
                     <x-button variant="secondary">
+                        <x-bi-person-circle class="mr-2"/>
                         <span>{{ Auth::user()->name }}</span>
 
-                        <div class="ml-2 -mr-1">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                        </div>
+                        <x-bi-chevron-down class="ml-2 w-3 h-3 -mr-1"/>
                     </x-button>
                 @else
                     <x-button variant="secondary" size="icon" class="h-9">
@@ -31,19 +26,24 @@
             <x-slot name="content">
 
                 <x-dropdown-menu.link wire:navigate active="{{ request()->path() === '/' }}" href="/">
+                    <x-bi-house/>
                     {{ __('Home') }}
                 </x-dropdown-menu.link>
                 <x-dropdown-menu.link wire:navigate href="/about" active="{{ request()->path() === '/about' }}">
+                    <x-bi-person/>
                     {{ __('About') }}
                 </x-dropdown-menu.link>
                 <x-dropdown-menu.link wire:navigate href="/gallery" active="{{ request()->path() === '/gallery' }}">
+                    <x-bi-image/>
                     {{ __('Gallery') }}
                 </x-dropdown-menu.link>
                 @auth
                     <x-dropdown-menu.link wire:navigate :href="route('dashboard')">
+                        <x-bi-pie-chart/>
                         {{ __('Dashboard') }}
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.link wire:navigate :href="route('profile')">
+                        <x-bi-person-circle/>
                         {{ __('Profile') }}
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.separator/>
@@ -54,15 +54,18 @@
                         <x-dropdown-menu.link :href="route('logout')"
                                               onclick="event.preventDefault();
                                                 this.closest('form').submit();">
+                            <x-bi-box-arrow-right/>
                             {{ __('Log Out') }}
                         </x-dropdown-menu.link>
                     </form>
                 @else
                     <x-dropdown-menu.separator/>
                     <x-dropdown-menu.link wire:navigate :href="route('login')">
+                        <x-bi-box-arrow-left/>
                         {{ __('Login') }}
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.link wire:navigate :href="route('register')">
+                        <x-bi-person-circle/>
                         {{ __('Register') }}
                     </x-dropdown-menu.link>
                 @endauth

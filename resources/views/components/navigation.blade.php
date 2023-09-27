@@ -21,24 +21,20 @@
                 <x-dropdown-menu align="right" width="60">
                     <x-slot name="trigger">
                         <x-button variant="secondary">
-                            <x-icons.person-circle class="mr-3"/>
+                            <x-bi-person-circle class="mr-3"/>
                             <div>{{ Auth::user()->name }}</div>
 
-                            <div class="ml-2 -mr-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
+                            <x-bi-chevron-down class="ml-2 w-3 h-3 -mr-1"/>
                         </x-button>
                     </x-slot>
 
                     <x-slot name="content">
                         <x-dropdown-menu.link wire:navigate :href="route('dashboard')">
-                            <x-icons.dashboard/>
+                            <x-bi-pie-chart/>
                             {{ __('Dashboard') }}
                         </x-dropdown-menu.link>
                         <x-dropdown-menu.link wire:navigate :href="route('profile')">
-                            <x-icons.settings/>
+                            <x-bi-gear/>
                             {{ __('Profile') }}
                         </x-dropdown-menu.link>
 
@@ -50,7 +46,7 @@
                             <x-dropdown-menu.link :href="route('logout')"
                                                   onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <x-icons.logout/>
+                                <x-bi-box-arrow-right/>
                                 {{ __('Log Out') }}
                             </x-dropdown-menu.link>
                         </form>
@@ -62,21 +58,17 @@
                         <x-button variant="secondary">
                             <div>Login</div>
 
-                            <div class="ml-2 -mr-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
+                            <x-bi-chevron-down class="ml-2 w-3 h-3 -mr-1"/>
                         </x-button>
                     </x-slot>
 
                     <x-slot name="content">
                         <x-dropdown-menu.link wire:navigate :href="route('login')">
-                            <x-icons.logout class="rotate-180"/>
+                            <x-bi-box-arrow-left/>
                             {{ __('Login') }}
                         </x-dropdown-menu.link>
                         <x-dropdown-menu.link wire:navigate :href="route('register')">
-                            <x-icons.person-circle/>
+                            <x-bi-person-circle/>
                             {{ __('Register') }}
                         </x-dropdown-menu.link>
                     </x-slot>

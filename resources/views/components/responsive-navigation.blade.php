@@ -5,22 +5,22 @@
     <div class="flex items-center gap-x-2">
         <x-sheet>
             <x-slot name="trigger">
-            @auth
-                <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->gravatar() }}"
-                     alt="{{ auth()->user()->name }}">
+                @auth
+                    <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->gravatar() }}"
+                         alt="{{ auth()->user()->name }}">
                 @else
-                <x-bi-layout-sidebar-reverse class="w-4 h-4"/>
-            @endauth
+                    <x-bi-layout-sidebar-reverse class="w-4 h-4"/>
+                @endauth
             </x-slot>
             <div>
                 <x-application-logo class="w-8 h-8 fill-foreground"/>
                 <x-sheet.label class="mt-6 flex items-center justify-between">
                     @auth
-                    <div>
-                        <div>{{ auth()->user()->name }}</div>
-                        <small class="text-muted-foreground">{{ auth()->user()->email }}</small>
-                    </div>
-                        @else
+                        <div>
+                            <div>{{ auth()->user()->name }}</div>
+                            <small class="text-muted-foreground">{{ auth()->user()->email }}</small>
+                        </div>
+                    @else
                         <h4 class="font-semibold tracking-tight">
                             {{ config('app.name') }}
                         </h4>

@@ -63,10 +63,10 @@
 <div class="min-h-screen">
     <x-responsive-navigation/>
 
+        <x-theme-toggle class="hidden lg:block fixed bottom-0 left-0 ml-8 mb-4 p-0 border-0 [&>svg]:w-3.5 [&>svg]:w-h.5 text-muted-foreground bg-transparent hover:bg-transparent mr-2"/>
     <!-- Page Content -->
     <div class="flex max-w-screen-2x mx-auto">
-        <x-aside class="relative">
-            <x-theme-toggle class="bottom-0 left-0 absolute p-0 border-0 [&>svg]:w-3.5 [&>svg]:w-h.5 text-muted-foreground bg-transparent hover:bg-transparent -mr-2"/>
+        <x-aside>
             <li class="flex items-center justify-between mb-8">
                 <a wire:navigate href="/" class="block">
                     <x-application-logo class="w-10 h-10 shrink-0 fill-foreground mr-6"/>
@@ -87,13 +87,13 @@
             </x-aside.link>
         </x-aside>
         <div class="w-full">
-                @isset($header)
-            <header class="flex border-b justify-between items-center px-6 sm:px-8 py-4 sm:py-6 bg-card">
+            @isset($header)
+                <header class="flex border-b justify-between items-center px-6 sm:px-8 py-4 sm:py-6 bg-card">
                     <h1 class="font-semibold text-lg text-foreground">
                         {{ $header }}
                     </h1>
-            </header>
-                @endisset
+                </header>
+            @endisset
 
             <div class="sm:p-8 p-6">
                 {{ $slot }}

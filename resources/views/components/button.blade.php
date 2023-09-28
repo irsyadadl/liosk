@@ -23,6 +23,6 @@
     $mergedClasses = 'inline-flex h-10 items-center justify-center rounded-md transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 ' . $sizeClasses[$size] . ' ' . $variantClasses[$variant];
 @endphp
 
-<button {{ $attributes->merge(['class' => $mergedClasses]) }}>
+<button {{ $attributes->twMerge(['class' => $mergedClasses]) }}>
     {{ $slot }}
 </button>

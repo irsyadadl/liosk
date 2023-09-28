@@ -1,4 +1,5 @@
 {
+    "singleQuote": true,
     "plugins": [
         "@shufo/prettier-plugin-blade"
     ],

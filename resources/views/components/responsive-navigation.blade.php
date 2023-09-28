@@ -33,6 +33,9 @@
                         {{ __('Settings') }}
                         <x-bi-gear/>
                     </x-sheet.link>
+                    <x-sheet.link class="justify-between" wire:navigate href="/users" active="{{ request()->path() === 'users' }}">
+                        {{ __('Users') }}
+                    </x-sheet.link>
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

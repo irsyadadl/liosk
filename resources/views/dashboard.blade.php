@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-header>
-        {{ __('Dashboard') }}
-    </x-header>
+<x-user-layout>
+    <x-slot name="header">Dashboard</x-slot>
+    Hey <strong>{{ firstWord(auth()->user()->name) }}</strong>, you are logged in!
 
-    <x-container>
-        Hey <strong>{{ firstWord(auth()->user()->name) }}</strong>, you are logged in!
-    </x-container>
-</x-app-layout>
+</x-user-layout>

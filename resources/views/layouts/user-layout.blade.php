@@ -74,16 +74,41 @@
             </li>
 
             <x-aside.link wire:navigate href="/dashboard" active="{{ request()->path() === 'dashboard' }}">
+                <x-bi-pie-chart/>
                 Dashboard
             </x-aside.link>
             <x-aside.link wire:navigate href="/profile" active="{{ request()->path() === 'profile' }}">
+                <x-bi-gear/>
                 Settings
             </x-aside.link>
             <x-aside.link wire:navigate href="/users" active="{{ request()->path() === 'users' }}">
+                <x-bi-people/>
                 Users
             </x-aside.link>
             <x-aside.link wire:navigate href="/articles" active="{{ request()->path() === 'articles' }}">
+                <x-bi-journal-richtext/>
                 Articles
+            </x-aside.link>
+            <x-aside.link>
+                <x-bi-eyeglasses/>
+                Terms of Service
+            </x-aside.link>
+            <x-aside.link wire:navigate>
+                <x-bi-shield/>
+                Privacy Policy
+            </x-aside.link>
+            <x-aside.link wire:navigate>
+                <x-bi-question-circle/>
+                Help
+            </x-aside.link>
+            <x-aside.link wire:navigate class="pl-10">
+                Link
+            </x-aside.link>
+            <x-aside.link wire:navigate class="pl-10">
+                Another Link
+            </x-aside.link>
+            <x-aside.link wire:navigate class="pl-10">
+                More
             </x-aside.link>
         </x-aside>
         <div class="w-full">

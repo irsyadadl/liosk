@@ -38,7 +38,7 @@
                         {{ __('Dashboard') }}
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.link class="justify-between" wire:navigate :href="route('profile')">
-                        {{ __('Profile') }}
+                        {{ __('Settings') }}
                         <x-bi-gear/>
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.separator/>

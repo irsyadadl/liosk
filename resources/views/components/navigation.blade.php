@@ -31,6 +31,10 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-menu.label>
+                            <div>{{ auth()->user()->name }}</div>
+                            <small class="text-muted-foreground">{{ auth()->user()->email }}</small>
+                        </x-dropdown-menu.label>
                         <x-dropdown-menu.link wire:navigate :href="route('dashboard')">
                             {{ __('Dashboard') }}
                         </x-dropdown-menu.link>

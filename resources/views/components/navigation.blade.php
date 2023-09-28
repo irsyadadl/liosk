@@ -68,11 +68,9 @@
 
                     <x-slot name="content">
                         <x-dropdown-menu.link wire:navigate :href="route('login')">
-                            <x-bi-box-arrow-left/>
                             {{ __('Login') }}
                         </x-dropdown-menu.link>
                         <x-dropdown-menu.link wire:navigate :href="route('register')">
-                            <x-bi-person-circle/>
                             {{ __('Register') }}
                         </x-dropdown-menu.link>
                     </x-slot>

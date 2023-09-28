@@ -1,3 +1,7 @@
+<?php
+\Laravel\Folio\middleware('auth');
+?>
+
 <x-user-layout title="Categories">
     <x-slot name="header">Categories</x-slot>
 

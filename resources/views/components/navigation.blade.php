@@ -1,15 +1,17 @@
 <nav class='border-b hidden lg:block py-3'>
     <div class="flex items-center justify-between max-w-screen-2xl px-4 sm:px-6 lg:px-8 mx-auto">
         <div class="flex items-center">
-            <x-application-logo class="w-8 h-8 shrink-0 fill-foreground mr-6"/>
+            <a wire:navigate href="/">
+                <x-application-logo class="w-8 h-8 shrink-0 fill-foreground mr-6"/>
+            </a>
 
             <x-nav-link wire:navigate active="{{ request()->path() === '/' }}" href="/">
                 {{ __('Home') }}
             </x-nav-link>
-            <x-nav-link wire:navigate href="/about" active="{{ request()->path() === '/about' }}">
+            <x-nav-link wire:navigate href="/about" active="{{ request()->path() === 'about' }}">
                 {{ __('About') }}
             </x-nav-link>
-            <x-nav-link wire:navigate href="/gallery" active="{{ request()->path() === '/gallery' }}">
+            <x-nav-link wire:navigate href="/gallery" active="{{ request()->path() === 'gallery' }}">
                 {{ __('Gallery') }}
             </x-nav-link>
         </div>
@@ -30,12 +32,11 @@
 
                     <x-slot name="content">
                         <x-dropdown-menu.link wire:navigate :href="route('dashboard')">
-                            <x-bi-pie-chart/>
                             {{ __('Dashboard') }}
                         </x-dropdown-menu.link>
-                        <x-dropdown-menu.link wire:navigate :href="route('profile')">
-                            <x-bi-gear/>
+                        <x-dropdown-menu.link class="justify-between" wire:navigate :href="route('profile')">
                             {{ __('Profile') }}
+                            <x-bi-gear/>
                         </x-dropdown-menu.link>
 
                         <x-dropdown-menu.separator/>
@@ -46,7 +47,6 @@
                             <x-dropdown-menu.link :href="route('logout')"
                                                   onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <x-bi-box-arrow-right/>
                                 {{ __('Log Out') }}
                             </x-dropdown-menu.link>
                         </form>

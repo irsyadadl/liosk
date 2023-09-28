@@ -7,7 +7,7 @@ $classes = ($active ?? false)
 @endphp
 
 <a wire:navigate {{ $attributes->twMerge(
-    'px-4 py-2 inline-block text-sm hover:bg-accent rounded-md',
+    'px-4 py-2 inline-block text-sm font-medium tracking-tight hover:bg-accent rounded-md',
     $classes) }}>
     {{ $slot }}
 </a>

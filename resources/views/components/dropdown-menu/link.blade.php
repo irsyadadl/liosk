@@ -1,1 +1,1 @@
-<a {{ $attributes->merge(['class' => 'flex items-center [&>svg]:mr-2 [&>svg]:w-3.5 [&>svg]:h-3.5 [&>svg]:shrink-0 w-full px-4 py-2 text-left text-sm leading-5 focus:outline-none focus:bg-accent hover:bg-accent transition duration-150 ease-in-out']) }}>{{ $slot }}</a>
+<a {{ $attributes->merge(['class' => 'flex items-center [&>svg]:w-3.5 [&>svg]:h-3.5 [&>svg]:shrink-0 w-full pl-4 pr-3 py-2 text-left text-sm leading-5 focus:outline-none focus:bg-accent hover:bg-accent transition duration-150 ease-in-out']) }}>{{ $slot }}</a>

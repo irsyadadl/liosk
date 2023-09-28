@@ -24,27 +24,22 @@
             </x-slot>
 
             <x-slot name="content">
-
                 <x-dropdown-menu.link wire:navigate active="{{ request()->path() === '/' }}" href="/">
-                    <x-bi-house/>
                     {{ __('Home') }}
                 </x-dropdown-menu.link>
                 <x-dropdown-menu.link wire:navigate href="/about" active="{{ request()->path() === '/about' }}">
-                    <x-bi-person/>
                     {{ __('About') }}
                 </x-dropdown-menu.link>
                 <x-dropdown-menu.link wire:navigate href="/gallery" active="{{ request()->path() === '/gallery' }}">
-                    <x-bi-image/>
                     {{ __('Gallery') }}
                 </x-dropdown-menu.link>
                 @auth
                     <x-dropdown-menu.link wire:navigate :href="route('dashboard')">
-                        <x-bi-pie-chart/>
                         {{ __('Dashboard') }}
                     </x-dropdown-menu.link>
-                    <x-dropdown-menu.link wire:navigate :href="route('profile')">
-                        <x-bi-person-circle/>
+                    <x-dropdown-menu.link class="justify-between" wire:navigate :href="route('profile')">
                         {{ __('Profile') }}
+                        <x-bi-gear/>
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.separator/>
                     <!-- Authentication -->
@@ -54,18 +49,15 @@
                         <x-dropdown-menu.link :href="route('logout')"
                                               onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                            <x-bi-box-arrow-right/>
                             {{ __('Log Out') }}
                         </x-dropdown-menu.link>
                     </form>
                 @else
                     <x-dropdown-menu.separator/>
                     <x-dropdown-menu.link wire:navigate :href="route('login')">
-                        <x-bi-box-arrow-left/>
                         {{ __('Login') }}
                     </x-dropdown-menu.link>
                     <x-dropdown-menu.link wire:navigate :href="route('register')">
-                        <x-bi-person-circle/>
                         {{ __('Register') }}
                     </x-dropdown-menu.link>
                 @endauth

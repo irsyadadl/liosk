@@ -12,3 +12,9 @@ bun i && bun run build
 php artisan migrate
 ```
 
+### Premium Partners
+
+-   **[irsyad.co](https://irsyad.co/)**
+-   **[parsinta.com](https://parsinta.com/)**
+-   **[karteil.com](https://karteil.com/)**
+-   **[jetbrains.com](https://jetbrains.com/)**

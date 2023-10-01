@@ -51,6 +51,10 @@
                                   active="{{ request()->path() === 'users' }}">
                         {{ __('Users') }}
                     </x-sheet.link>
+                    <x-sheet.link class="justify-between" wire:navigate href="/articles"
+                                  active="{{ request()->path() === 'articles' }}">
+                        {{ __('Articles') }}
+                    </x-sheet.link>
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

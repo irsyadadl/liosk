@@ -2,22 +2,19 @@
 
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use Livewire\Volt\Volt;
 
 test('login screen can be rendered', function () {
     $response = $this->get('/login');
 
-    $response
-        ->assertSeeVolt('auth.login')
-        ->assertOk();
+    $response->assertSeeLivewire('auth.login')->assertOk();
 });
 
 test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();
 
-    $component = Volt::test('auth.login')
-        ->set('email', $user->email)
-        ->set('password', 'password');
+    $component = Livewire::test('auth.login')
+        ->set('form.email', $user->email)
+        ->set('form.password', 'password');
 
     $component->call('login');
 
@@ -31,9 +28,9 @@ test('users can authenticate using the login screen', function () {
 test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
-    $component = Volt::test('auth.login')
-        ->set('email', $user->email)
-        ->set('password', 'wrong-password');
+    $component = Livewire::test('auth.login')
+        ->set('form.email', $user->email)
+        ->set('form.password', 'wrong-password');
 
     $component->call('login');
 
@@ -52,14 +49,13 @@ test('navigation menu can be rendered', function () {
     $response = $this->get('/dashboard');
 
     $response->assertOk();
-})->skip();
+});
 
 test('users can logout', function () {
     $user = User::factory()->create();
 
-    $this->actingAs($user);
-
-    $this->post('/logout');
+    $response = $this->actingAs($user)->post('/logout');
 
     $this->assertGuest();
+    $response->assertRedirect('/');
 });

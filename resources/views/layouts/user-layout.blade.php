@@ -62,8 +62,8 @@
 <body class="font-sans antialiased">
 <div class="min-h-screen">
     <x-responsive-navigation/>
-
-        <x-theme-toggle class="hidden lg:block fixed bottom-0 left-0 ml-8 mb-4 p-0 border-0 [&>svg]:w-3.5 [&>svg]:w-h.5 text-muted-foreground bg-transparent hover:bg-transparent mr-2"/>
+    <x-theme-toggle
+        class="hidden lg:block fixed bottom-0 left-0 ml-8 mb-4 p-0 border-0 [&>svg]:w-3.5 [&>svg]:w-h.5 text-muted-foreground bg-transparent hover:bg-transparent mr-2"/>
     <!-- Page Content -->
     <div class="flex max-w-screen-2x mx-auto">
         <x-aside>

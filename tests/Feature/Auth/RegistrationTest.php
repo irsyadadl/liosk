@@ -3,18 +3,18 @@
 namespace Tests\Feature\Auth;
 
 use App\Providers\RouteServiceProvider;
-use Livewire\Volt\Volt;
+use Livewire\Livewire;
 
 test('registration screen can be rendered', function () {
     $response = $this->get('/register');
 
     $response
-        ->assertSeeVolt('auth.register')
+        ->assertSeeLivewire('auth.register')
         ->assertOk();
-})->skip();
+});
 
 test('new users can register', function () {
-    $component = Volt::test('auth.register')
+    $component = Livewire::test('auth.register')
         ->set('name', 'Test User')
         ->set('email', 'test@example.com')
         ->set('password', 'password')

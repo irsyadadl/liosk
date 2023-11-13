@@ -11,9 +11,9 @@ test('reset password link screen can be rendered', function () {
     $response = $this->get('/forgot-password');
 
     $response
-        ->assertSeeVolt('auth.forgot-password')
+        ->assertSeeLivewire('auth.forgot-password')
         ->assertStatus(200);
-})->skip();
+});
 
 test('reset password link can be requested', function () {
     Notification::fake();
@@ -40,12 +40,12 @@ test('reset password screen can be rendered', function () {
         $response = $this->get('/reset-password/' . $notification->token);
 
         $response
-            ->assertSeeVolt('auth.reset-password')
+            ->assertSeeLivewire('auth.reset-password')
             ->assertStatus(200);
 
         return true;
     });
-})->skip();
+});
 
 test('password can be reset with valid token', function () {
     Notification::fake();

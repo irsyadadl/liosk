@@ -12,21 +12,21 @@ bun i && bun run build
 php artisan migrate
 ```
 
-### Quick Login
+## Quick Login
 Before you can login, you need to create a user. You can do that by visiting `/register` route. Or if you want, you can of course run the seeder by running `php artisan db:seed`.
 
 And then you can login as usual. Or if you want to login quickly, you can visit `/dev/login/1` and you will be logged in as user that has id of 1.
 
-### Formatter
+## Formatter
 By default, this project using [Laravel Duster](https://parsinta.com/eYtfMw8f),so you can run this command to format your code.
 ```bash
 vendor/bin/duster fix
 ```
 
-### Dark mode
+## Dark mode
 This project has a dark mode feature. You can enable it by clicking the moon icon on the top right of the page. And if you want to change the default theme, you can change it in `resources/css/app.css` file. It's using the css variable, so you can change it easily.
 
-### Premium Partners
+## Premium Partners
 
 -   **[irsyad.co](https://irsyad.co/)**
 -   **[parsinta.com](https://parsinta.com/)**

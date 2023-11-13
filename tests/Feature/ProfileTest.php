@@ -11,11 +11,11 @@ test('profile page is displayed', function () {
     $response = $this->get('/profile');
 
     $response
-        ->assertSeeVolt('profile.update-profile-information-form')
-        ->assertSeeVolt('profile.update-password-form')
-        ->assertSeeVolt('profile.delete-user-form')
+        ->assertSeeLivewire('profile.update-profile-information-form')
+        ->assertSeeLivewire('profile.update-password-form')
+        ->assertSeeLivewire('profile.delete-user-form')
         ->assertOk();
-})->skip();
+});
 
 test('profile information can be updated', function () {
     $user = User::factory()->create();

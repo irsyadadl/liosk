@@ -1,4 +1,5 @@
 <div {{ $attributes->twMerge('rounded-lg border bg-card text-card-foreground shadow-sm') }}>
+    {{ $slot }}
     @isset($header)
         <div class="flex flex-col space-y-1.5 p-6">
             @isset($title)

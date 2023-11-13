@@ -15,7 +15,6 @@ test('users can authenticate using the login screen', function () {
     $component = Livewire::test('auth.login')
         ->set('form.email', $user->email)
         ->set('form.password', 'password');
-
     $component->call('login');
 
     $component

@@ -3,35 +3,42 @@
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Livewire\Attributes\Layout;
-use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
-{
-    public string $name = '';
-    public string $email = '';
-    public string $password = '';
-    public string $password_confirmation = '';
+use function Livewire\Volt\layout;
+use function Livewire\Volt\rules;
+use function Livewire\Volt\state;
 
-    public function register(): void
-    {
-        $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
-        ]);
+layout('layouts.guest');
 
-        $validated['password'] = Hash::make($validated['password']);
+state([
+    'name' => '',
+    'email' => '',
+    'password' => '',
+    'password_confirmation' => ''
+]);
 
-        event(new Registered($user = User::create($validated)));
+rules([
+    'name' => ['required', 'string', 'max:255'],
+    'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+    'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+]);
 
-        auth()->login($user);
+$register = function () {
+    $validated = $this->validate();
 
-        $this->redirect(RouteServiceProvider::HOME, navigate: true);
-    }
-}; ?>
+    $validated['password'] = Hash::make($validated['password']);
+
+    event(new Registered($user = User::create($validated)));
+
+    auth()->login($user);
+
+    $this->redirect(RouteServiceProvider::HOME, navigate: true);
+};
+
+?>
 
 <div>
     <form wire:submit="register">
@@ -54,9 +61,9 @@ new #[Layout('layouts.guest')] class extends Component
             <x-label for="password" :value="__('Password')" />
 
             <x-input wire:model="password" id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+                          type="password"
+                          name="password"
+                          required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -66,18 +73,18 @@ new #[Layout('layouts.guest')] class extends Component
             <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
             <x-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                          type="password"
+                          name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="text-sm text-muted-foreground hover:text-foreground" href="{{ route('login') }}" wire:navigate>
+            <a class="ext-muted-foreground hover:text-foreground text-sm mr-3" href="{{ route('login') }}" wire:navigate>
                 {{ __('Already registered?') }}
             </a>
 
-            <x-button class="ml-4">
+            <x-button class="ms-4">
                 {{ __('Register') }}
             </x-button>
         </div>

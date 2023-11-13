@@ -65,7 +65,7 @@
     <x-theme-toggle
         class="hidden lg:block fixed bottom-0 left-0 ml-8 mb-4 p-0 border-0 [&>svg]:w-3.5 [&>svg]:w-h.5 text-muted-foreground bg-transparent hover:bg-transparent mr-2"/>
     <!-- Page Content -->
-    <div class="flex max-w-screen-2x mx-auto">
+    <div class="flex max-w-screen-2xl mx-auto">
         <x-aside>
             <li class="flex items-center justify-between mb-8">
                 <a wire:navigate href="/" class="block">
